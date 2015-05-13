@@ -8,7 +8,6 @@ ACTIVEMQ_DATA="/data/activemq"
 ACTIVEMQ_CONF="${ACTIVEMQ_HOME}/conf"
 ACTIVEMQ_LOG="/var/log/activemq"
 
-
 # ActiveMQ setting
 ACTIVEMQ_NAME=${ACTIVEMQ_NAME:-localhost}
 ACTIVEMQ_LOGLEVEL=${ACTIVEMQ_LOGLEVEL:-INFO}
@@ -34,8 +33,6 @@ ACTIVEMQ_OWNER_PASSWORD=${ACTIVEMQ_OWNER_PASSWORD:-}
 ACTIVEMQ_JMX_LOGIN=${ACTIVEMQ_JMX_LOGIN:-admin}
 ACTIVEMQ_JMX_PASSWORD=${ACTIVEMQ_JMX_PASSWORD:-activemq}
 
-
-
 # Topics and queues settings
 ACTIVEMQ_STATIC_TOPICS=${ACTIVEMQ_STATIC_TOPICS:-}
 ACTIVEMQ_STATIC_QUEUES=${ACTIVEMQ_STATIC_QUEUES:-}
@@ -45,7 +42,6 @@ ACTIVEMQ_PERSISTENT_CLIENTS=ACTIVEMQ_PERSISTENT_CLIENT:-}
 
 # We go on activemq directory
 cd ${ACTIVEMQ_HOME}
-
 
 # We setting the file users.properties (this permit to connect on topics and queues)
 sudo -u activemq -H sed 's/{{ACTIVEMQ_ADMIN}}/'"${ACTIVEMQ_ADMIN_LOGIN}=${ACTIVEMQ_ADMIN_PASSWORD}"'/' -i conf/users.properties
@@ -126,6 +122,5 @@ case "$1" in
 	/usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf    
     ;;
 esac
-
 
 exit 0

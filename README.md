@@ -65,8 +65,8 @@ You can launch the image using the docker command line :
 - **For test purpose :**
 
 ```bash
-docker run --name='soma-mq' -it --rm \
-parana/soma-mq
+docker run --name='somamq' -it --rm \
+       parana/soma-mq
 ```
 The account admin is "admin" and password is "admin". All settings is the default ActiveMQ's settings.
 

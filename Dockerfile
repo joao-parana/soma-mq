@@ -1,7 +1,6 @@
-# ActiveMQ 5.11.1
+# ActiveMQ 5.10.2
 
-# FROM webcenter/openjdk:jre-8-headless
-# FROM parana/jdk8-debian # TODO: Investigar o que ocorre com a JDK da Oracle e ActiveMQ
+# FROM parana/jdk8-debian # TODO: Investigar o que ocorre com a JDK da Oracle no Debian e o ActiveMQ
 FROM webcenter/openjdk-jre:8
 
 MAINTAINER João Antonio Ferreira <joao.parana@gmail.com>
@@ -22,14 +21,13 @@ RUN apt-get update && \
 COPY assets/config/ /app/setup/config/
 COPY assets/bin/ /app/setup/bin/
 COPY assets/init /app/init
-RUN chmod 755 /app/init
-RUN chmod 775 /app/setup/bin/*
-
 
 # Lauch app install
 COPY assets/setup/ /app/setup/
-RUN chmod 755 /app/setup/install
-RUN /app/setup/install
+RUN chmod 755 /app/init && \
+    chmod 775 /app/setup/bin/* && \
+    chmod 755 /app/setup/install && \
+    /app/setup/install
 
 # Expose all port
 EXPOSE 8161 
