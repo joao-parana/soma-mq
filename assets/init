@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# We should always use set -e to stop execution or error
 set -e
+# For Debug use : set -x and set -v 
 
 SETUP_DIR="/app/setup"
 ACTIVEMQ_HOME="/opt/activemq"

@@ -26,8 +26,9 @@ COPY assets/init /app/init
 COPY assets/setup/ /app/setup/
 RUN chmod 755 /app/init && \
     chmod 775 /app/setup/bin/* && \
-    chmod 755 /app/setup/install && \
-    /app/setup/install
+    chmod 755 /app/setup/install
+
+RUN /app/setup/install
 
 # Expose all port
 EXPOSE 8161 
